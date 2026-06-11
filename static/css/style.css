@@ -1,0 +1,28 @@
+body {
+    background: linear-gradient(135deg,
+            #050b18,
+            #0a1931,
+            #091524);
+    color: white;
+}
+
+.sidebar {
+    background: rgba(0, 0, 0, 0.7);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    color: #2d7dff;
+    font-size: 2rem;
+}
+
+.card-custom {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}

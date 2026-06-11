@@ -1,0 +1,30 @@
+# Virtual Environment
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database
+db.sqlite3
+
+# PyCharm
+.idea/
+
+# Django
+*.log
+
+# Media (если не хочешь хранить фото в GitHub)
+media/
+
+# Static files
+staticfiles/
+
+# Environment variables
+.env
+
+# Windows
+Thumbs.db
+Desktop.ini
