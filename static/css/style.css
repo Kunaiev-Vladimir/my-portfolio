@@ -26,3 +26,26 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
 }
+
+/* HERO SECTION BACKGROUND */
+
+.col-lg-9 {
+    background-color: #020817;
+    background-image: url("/static/images/hero-bg.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 100% 515px;
+}
+
+/* HERO IMAGE */
+
+.hero-bg {
+    height: 320px;
+
+    background: url("/static/images/hero-bg.png") center center no-repeat;
+    background-size: cover;
+
+    border-radius: 20px;
+
+    margin-bottom: 30px;
+}
