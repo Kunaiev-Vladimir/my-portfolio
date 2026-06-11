@@ -6,7 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>{% trans "My Portfolio" %}</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +40,6 @@
             <p>✉ {{ profile.email }}</p>
 
             <div class="mt-4">
-
                 {% if profile.linkedin_url %}
                     <a href="{{ profile.linkedin_url }}"
                        class="btn btn-outline-primary w-100 mb-2">
@@ -55,21 +53,18 @@
                         GitHub
                     </a>
                 {% endif %}
-
             </div>
 
-            <!-- Skills в левой панели -->
+            <!-- Skills -->
             <div class="mt-5 text-start">
-
                 <h6 class="text-uppercase text-secondary mb-3">
                     {% trans "Tech Stack" %}
                 </h6>
 
                 {% for skill in skills %}
                     <div class="mb-3">
-
                         <div class="d-flex justify-content-between small mb-1">
-                            <span>{% trans skill.name %}</span>
+                            <span>{{ skill.name }}</span>
                             <span>{{ skill.level }}%</span>
                         </div>
 
@@ -79,14 +74,12 @@
                                  style="width: {{ skill.level }}%;">
                             </div>
                         </div>
-
                     </div>
                 {% empty %}
                     <p class="text-secondary small">
                         {% trans "Skills have not been added yet." %}
                     </p>
                 {% endfor %}
-
             </div>
 
         </div>
@@ -115,17 +108,13 @@
             </p>
 
             <div class="mt-4 mb-5">
-
-                <a href="#"
-                   class="btn btn-primary btn-lg me-3">
+                <a href="#" class="btn btn-primary btn-lg me-3">
                     {% trans "View Projects" %}
                 </a>
 
-                <a href="#"
-                   class="btn btn-outline-light btn-lg">
+                <a href="#" class="btn btn-outline-light btn-lg">
                     {% trans "Contact Me" %}
                 </a>
-
             </div>
 
             <div class="row g-4">
@@ -168,14 +157,164 @@
 
             </div>
 
+            <!-- About Me -->
             <div class="card bg-black text-light border-secondary mt-5">
                 <div class="card-body">
-
                     <h3 class="mb-3">{% trans "About Me" %}</h3>
 
                     <p>
                         {{ profile.about_text }}
                     </p>
+                </div>
+            </div>
+
+            <!-- Main Experience -->
+            <div class="card bg-black text-light border-secondary mt-5">
+                <div class="card-body">
+
+                    <h3 class="mb-4">{% trans "Experience" %}</h3>
+
+                    <div class="timeline">
+
+                        {% for experience in experiences %}
+
+                            {% if experience.work_type != "part_time" and experience.work_type != "Part-time job" and experience.work_type != "Part time job" and experience.work_type != "Combined work" %}
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+
+                                    <div class="timeline-content">
+
+                                        <div class="d-flex justify-content-between align-items-start flex-wrap">
+
+                                            <div>
+                                                <h5 class="mb-1">
+                                                    {{ experience.position }}
+                                                </h5>
+
+                                                <h6 class="text-info mb-1">
+                                                    {{ experience.company }}
+                                                </h6>
+
+                                                {% if experience.industry %}
+                                                    <p class="text-secondary mb-2">
+                                                        {{ experience.industry }}
+                                                    </p>
+                                                {% endif %}
+                                            </div>
+
+                                            <span class="badge bg-primary">
+{#                                    {{ experience.get_work_type_display|default:experience.work_type }}#}
+                                                Main Job
+                                            </span>
+
+                                        </div>
+
+                                        <p class="text-secondary mb-2">
+                                            {{ experience.start_date|date:"M Y" }}
+                                            —
+
+                                            {% if experience.is_current %}
+                                                {% trans "Present" %}
+                                            {% else %}
+                                                {{ experience.end_date|date:"M Y" }}
+                                            {% endif %}
+                                        </p>
+
+                                        {% if experience.description %}
+                                            <div class="mb-0">
+                                                {{ experience.description|linebreaks }}
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+
+                            {% endif %}
+
+                        {% empty %}
+
+                            <p class="text-secondary">
+                                {% trans "Experience has not been added yet." %}
+                            </p>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Part-time / Combined Work -->
+            <div class="card bg-black text-light border-secondary mt-5">
+                <div class="card-body">
+
+                    <h3 class="mb-4">
+{#                        {% trans "Part-time / Combined Work" %}#}
+                        {% trans "Additional Experience" %}
+                    </h3>
+
+                    <div class="timeline">
+
+                        {% for experience in experiences %}
+
+                            {% if experience.work_type == "part_time" or experience.work_type == "Part-time job" or experience.work_type == "Part time job" or experience.work_type == "Combined work" %}
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+
+                                    <div class="timeline-content">
+
+                                        <div class="d-flex justify-content-between align-items-start flex-wrap">
+
+                                            <div>
+                                                <h5 class="mb-1">
+                                                    {{ experience.position }}
+                                                </h5>
+
+                                                <h6 class="text-info mb-1">
+                                                    {{ experience.company }}
+                                                </h6>
+
+                                                {% if experience.industry %}
+                                                    <p class="text-secondary mb-2">
+                                                        {{ experience.industry }}
+                                                    </p>
+                                                {% endif %}
+                                            </div>
+
+                                            <span class="badge bg-secondary">
+{#                                                {{ experience.get_work_type_display|default:experience.work_type }}#}
+                                                Part-time Job
+                                            </span>
+
+                                        </div>
+
+                                        <p class="text-secondary mb-2">
+                                            {{ experience.start_date|date:"M Y" }}
+                                            —
+
+                                            {% if experience.is_current %}
+                                                {% trans "Present" %}
+                                            {% else %}
+                                                {{ experience.end_date|date:"M Y" }}
+                                            {% endif %}
+                                        </p>
+
+                                        {% if experience.description %}
+                                            <div class="mb-0">
+                                                {{ experience.description|linebreaks }}
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+
+                            {% endif %}
+
+                        {% endfor %}
+
+                    </div>
 
                 </div>
             </div>
