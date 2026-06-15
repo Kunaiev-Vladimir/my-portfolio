@@ -34,7 +34,7 @@ body {
     background-image: url("/static/images/hero-bg.png");
     background-repeat: no-repeat;
     background-position: right top;
-    background-size: 100% 515px;
+    background-size: 100% 530px;
 }
 
 /* HERO IMAGE */
@@ -48,4 +48,37 @@ body {
     border-radius: 20px;
 
     margin-bottom: 30px;
+}
+
+
+.education-item {
+    border-left: 2px solid #0d6efd;
+    padding-left: 15px;
+    margin-left: 8px;
+}
+
+.education-item h5 {
+    font-size: 1.1rem;
+}
+
+.education-item div {
+    line-height: 1.4;
+}
+
+
+.stat-icon {
+    font-size: 2.2rem;
+    color: #0d6efd;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.card.bg-black {
+    transition: all 0.3s ease;
+}
+
+.card.bg-black:hover {
+    transform: translateY(-5px);
+    border-color: #0d6efd !important;
+    box-shadow: 0 0 20px rgba(13, 110, 253, 0.25);
 }
