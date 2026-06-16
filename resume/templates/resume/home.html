@@ -25,7 +25,7 @@
         <!-- Левая панель -->
         <div class="col-lg-3 sidebar p-4 text-center">
 
-            {% if profile.photo %}
+            {% comment %} {% if profile.photo %}
                 <img src="{{ profile.photo.url }}"
                      alt="{{ profile.full_name }}"
                      class="img-fluid rounded shadow mb-4"
@@ -58,7 +58,11 @@
                         GitHub
                     </a>
                 {% endif %}
-            </div>
+            </div> {% endcomment %}
+
+            
+                {% include "includes/profile.html" %}
+               
 
             <!-- Skills -->
             <div class="mt-5 text-start">
@@ -183,7 +187,7 @@
             </div>
 
             <!-- About Me -->
-            <div class="card bg-black text-light border-secondary mt-5">
+            {% comment %} <div class="card bg-black text-light border-secondary mt-5">
                 <div class="card-body">
                     <h3 class="mb-3">{% trans "About Me" %}</h3>
 
@@ -191,7 +195,8 @@
                         {{ profile.about_text }}
                     </p>
                 </div>
-            </div>
+            </div> {% endcomment %}
+            {% include "includes/about.html" %}
 
             <!-- Main Experience -->
             <div class="card bg-black text-light border-secondary mt-5">

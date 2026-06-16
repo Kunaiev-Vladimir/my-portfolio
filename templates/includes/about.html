@@ -1,0 +1,51 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "My Portfolio" %}</title>
+</head>
+
+<div class="card bg-black text-light border-secondary mt-5">
+    <div class="card-body">
+        <h3 class="mb-3">{% trans "About Me" %}</h3>
+
+        {% if profile.about_text %}
+            <p>
+                {{ profile.about_text|linebreaks }}
+            </p>
+        {% else %}
+            <p class="lead mb-3">
+                Python Developer | Python Engineer | Data Analyst | Django Developer
+            </p>
+
+            <p>
+                Python Developer, Django Developer, Python Engineer, and Data Analyst
+                with a strong engineering background in energy systems, industrial
+                maintenance, and technical diagnostics.
+            </p>
+
+            <p>
+                Experienced in designing and managing complex engineering systems,
+                leading technical teams, and solving critical operational challenges.
+                Currently focused on Python and Django development, data analysis,
+                automation, web applications, and AI-related technologies.
+            </p>
+
+            <p>
+                Skilled in Python, Django, PostgreSQL, SQL, HTML/CSS, Bootstrap,
+                Git, Docker, and modern software development practices. Passionate
+                about continuous learning and applying technology to solve real-world
+                business and engineering problems.
+            </p>
+
+            <p class="mb-0">
+                My goal is to bridge engineering expertise, data analytics, and
+                software development to create reliable, scalable, and efficient
+                digital solutions.
+            </p>
+        {% endif %}
+    </div>
+</div>

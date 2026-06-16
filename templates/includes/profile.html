@@ -1,0 +1,81 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "My Portfolio" %}</title>
+</head>
+
+
+
+
+{% if profile %}
+
+    {% if profile.photo %}
+        <img src="{{ profile.photo.url }}"
+             alt="{{ profile.full_name }}"
+             class="img-fluid rounded shadow mb-4"
+             style="width: 180px;">
+    {% endif %}
+
+    <h3>{{ profile.full_name }}</h3>
+
+    <p class="text-primary fs-5">
+        {{ profile.title }}
+    </p>
+
+    <hr>
+
+    <p>📍 {{ profile.location }}</p>
+    <p>📞 {{ profile.phone }}</p>
+    <p>✉ {{ profile.email }}</p>
+
+    <div class="mt-4">
+
+        {% if profile.linkedin_url %}
+            <a href="{{ profile.linkedin_url }}"
+               class="btn btn-outline-primary w-100 mb-2">
+                LinkedIn
+            </a>
+        {% endif %}
+
+        {% if profile.github_url %}
+            <a href="{{ profile.github_url }}"
+               class="btn btn-outline-light w-100">
+                GitHub
+            </a>
+        {% endif %}
+
+    </div>
+
+{% else %}
+
+    <h3>Vladimir Kunaiev</h3>
+
+    <p class="text-primary fs-5">
+        Python Developer | Django Developer
+    </p>
+
+    <hr>
+
+    <p>📍 Kharkiv, Ukraine</p>
+    <p>📞 +380987536645, +380997879726</p>
+    <p>✉ kunaeivv@ukr.net</p>
+
+    <div class="mt-4">
+
+        <a href="https://www.linkedin.com/in/%D0%B2%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80-%D0%B3%D0%B5%D0%BD%D0%BD%D0%B0%D0%B4%D1%8C%D0%B5%D0%B2%D0%B8%D1%87-%D0%BA%D1%83%D0%BD%D0%B0%D0%B5%D0%B2-a32618129/"
+           class="btn btn-outline-primary w-100 mb-2">
+            LinkedIn
+        </a>
+
+        <a href="https://github.com/Kunaiev-Vladimir"
+           class="btn btn-outline-light w-100">
+            GitHub
+        </a>
+
+    </div>
+
+{% endif %}
