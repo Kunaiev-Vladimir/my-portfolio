@@ -1,0 +1,175 @@
+{% load static %}
+{% load i18n %}
+
+<div class="card bg-black text-light border-secondary mt-5">
+    <div class="card-body">
+
+```
+    <h3 class="mb-3">{% trans "Skills" %}</h3>
+
+    {% if skills %}
+
+        {% for skill in skills %}
+            <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1">
+                    <span>{{ skill.name }}</span>
+                    <span>{{ skill.level }}%</span>
+                </div>
+
+                <div class="progress" style="height: 6px;">
+                    <div class="progress-bar"
+                         role="progressbar"
+                         style="width: {{ skill.level }}%;">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    {% else %}
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>Python</span>
+                <span>90%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 90%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>Django</span>
+                <span>85%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 85%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>HTML/CSS</span>
+                <span>85%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 85%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>Django ORM</span>
+                <span>85%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 85%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>PostgreSQL</span>
+                <span>80%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 80%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>Git/GitHub</span>
+                <span>80%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 80%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>Docker</span>
+                <span>75%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>Cloudinary</span>
+                <span>75%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>Render Deployment</span>
+                <span>75%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>SQL</span>
+                <span>75%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>REST API</span>
+                <span>70%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 70%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>Linux (Debian/Ubuntu)</span>
+                <span>70%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 70%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>Power BI</span>
+                <span>65%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 65%;"></div>
+            </div>
+        </div>
+
+        <div class="mb-0">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>Data Analysis</span>
+                <span>65%</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+                <div class="progress-bar" style="width: 65%;"></div>
+            </div>
+        </div>
+
+    {% endif %}
+
+</div>
+```
+
+</div>

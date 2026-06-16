@@ -65,7 +65,7 @@
                
 
             <!-- Skills -->
-            <div class="mt-5 text-start">
+            {% comment %} <div class="mt-5 text-start">
                 <h6 class="text-uppercase text-secondary mb-3">
                     {% trans "Tech Stack" %}
                 </h6>
@@ -89,9 +89,9 @@
                         {% trans "Skills have not been added yet." %}
                     </p>
                 {% endfor %}
-            </div>
+            </div> {% endcomment %}
 
-            
+            {% include "includes/skills.html" %}
 
             <hr class="my-4">
 
