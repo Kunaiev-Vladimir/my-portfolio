@@ -1,0 +1,149 @@
+{% load static %}
+{% load i18n %}
+
+<div class="card bg-black text-light border-secondary mt-5">
+    <div class="card-body">
+
+        <h3 class="mb-4">{% trans "Experience" %}</h3>
+
+        {% if experiences %}
+            <div class="timeline">
+
+                {% for experience in experiences %}
+                    {% if experience.work_type == "main" %}
+
+                        <div class="timeline-item mb-4">
+                            <div class="timeline-dot"></div>
+
+                            <div class="timeline-content">
+
+                                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+
+                                    <div>
+                                        <h5 class="mb-1">
+                                            {{ experience.position }}
+                                        </h5>
+
+                                        <h6 class="text-info mb-1">
+                                            {{ experience.company }}
+                                        </h6>
+
+                                        {% if experience.industry %}
+                                            <p class="text-secondary mb-2">
+                                                {{ experience.industry }}
+                                            </p>
+                                        {% endif %}
+                                    </div>
+
+                                    <span class="badge bg-primary">
+                                        Main Job
+                                    </span>
+
+                                </div>
+
+                                <p class="text-secondary mb-2">
+                                    {{ experience.start_date|date:"M Y" }}
+                                    —
+
+                                    {% if experience.is_current %}
+                                        {% trans "Present" %}
+                                    {% else %}
+                                        {{ experience.end_date|date:"M Y" }}
+                                    {% endif %}
+                                </p>
+
+                                {% if experience.description %}
+                                    <div class="mb-0">
+                                        {{ experience.description|linebreaks }}
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        {% else %}
+            <p class="text-secondary">
+                {% trans "Experience has not been added yet." %}
+            </p>
+        {% endif %}
+
+    </div>
+</div>
+
+
+<div class="card bg-black text-light border-secondary mt-5">
+    <div class="card-body">
+
+        <h3 class="mb-4">{% trans "Additional Experience" %}</h3>
+
+        {% if experiences %}
+            <div class="timeline">
+
+                {% for experience in experiences %}
+                    {% if experience.work_type == "part_time" %}
+
+                        <div class="timeline-item mb-4">
+                            <div class="timeline-dot"></div>
+
+                            <div class="timeline-content">
+
+                                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+
+                                    <div>
+                                        <h5 class="mb-1">
+                                            {{ experience.position }}
+                                        </h5>
+
+                                        <h6 class="text-info mb-1">
+                                            {{ experience.company }}
+                                        </h6>
+
+                                        {% if experience.industry %}
+                                            <p class="text-secondary mb-2">
+                                                {{ experience.industry }}
+                                            </p>
+                                        {% endif %}
+                                    </div>
+
+                                    <span class="badge bg-secondary">
+                                        Part-time Job
+                                    </span>
+
+                                </div>
+
+                                <p class="text-secondary mb-2">
+                                    {{ experience.start_date|date:"M Y" }}
+                                    —
+
+                                    {% if experience.is_current %}
+                                        {% trans "Present" %}
+                                    {% else %}
+                                        {{ experience.end_date|date:"M Y" }}
+                                    {% endif %}
+                                </p>
+
+                                {% if experience.description %}
+                                    <div class="mb-0">
+                                        {{ experience.description|linebreaks }}
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        {% else %}
+            <p class="text-secondary">
+                {% trans "Additional experience has not been added yet." %}
+            </p>
+        {% endif %}
+
+    </div>
+</div>
