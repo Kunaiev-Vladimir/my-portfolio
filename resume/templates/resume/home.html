@@ -113,7 +113,7 @@
                 </span>
             </div>
 
-            <h1 class="hero-title">
+            {% comment %} <h1 class="hero-title">
                 {% trans "Hello, I'm" %}
                 <br>
                 {{ profile.full_name }}
@@ -125,7 +125,42 @@
 
             <p class="lead">
                 {{ profile.short_description }}
-            </p>
+            </p> {% endcomment %}
+
+            {% if profile %}
+
+                <h1 class="hero-title">
+                    {% trans "Hello, I'm" %}
+                    <br>
+                    {{ profile.full_name }}
+                </h1>
+
+                <h2 class="hero-subtitle mb-4">
+                    {{ profile.title }}
+                </h2>
+
+                <p class="lead">
+                    {{ profile.short_description }}
+                </p>
+
+            {% else %}
+
+                <h1 class="hero-title">
+                    {% trans "Hello, I'm" %}
+                    <br>
+                    Vladimir Kunaiev
+                </h1>
+
+                <h2 class="hero-subtitle mb-4">
+                    Python Developer
+                </h2>
+
+                <p class="lead">
+                    Python Developer, Python Engineer and Data Analyst with an engineering
+                    background in energy systems, industrial maintenance and technical diagnostics.
+                </p>
+
+            {% endif %}
 
             <div class="mt-4 mb-5">
                 
